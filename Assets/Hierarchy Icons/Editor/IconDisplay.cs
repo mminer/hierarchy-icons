@@ -42,7 +42,7 @@ namespace HierarchyIcons
 			font = AssetDatabase.LoadAssetAtPath(fontPath, typeof(Font)) as Font;
 
 			if (font == null) {
-				Debug.LogError("[Icon Hierarchy] The font file appears to be missing. Perhaps it was moved?");
+				Debug.LogError("[Hierarchy Icons] The font file appears to be missing. Perhaps it was moved?");
 			} else {
 				EditorApplication.hierarchyWindowItemOnGUI += HighlightItems;
 			}

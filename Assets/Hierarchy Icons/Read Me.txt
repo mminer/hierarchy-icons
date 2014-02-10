@@ -18,6 +18,14 @@ Version History
 - Initial release.
 
 
+Credit
+------
+
+The icons used are from the excellent WebHostingHub Glyphs collection
+(http://www.webhostinghub.com/glyphs/). They are licensed under the SIL Open
+Font License.
+
+
 Contact
 -------
 
