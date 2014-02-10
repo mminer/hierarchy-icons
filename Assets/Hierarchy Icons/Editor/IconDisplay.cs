@@ -18,31 +18,8 @@ namespace HierarchyIcons
 	/// Adds applicable icons next to game objects in the hierarchy.
 	/// </summary>
 	[InitializeOnLoad]
-	static class IconInserter
+	static class IconDisplay
 	{
-		static readonly Dictionary<Type, char> componentIcons = new Dictionary<Type, char>()
-		{
-			{ typeof(Animation),      '>' },
-			{ typeof(AudioListener),  'A' },
-			{ typeof(AudioSource),    'a' },
-			{ typeof(Camera),         'c' },
-			{ typeof(Cloth),          'C' },
-			{ typeof(ConstantForce),  'f' },
-			{ typeof(GUIText),        'g' },
-			{ typeof(Light),          'l' },
-			{ typeof(NetworkView),    'n' },
-			{ typeof(ParticleSystem), 'p' },
-			{ typeof(Projector),      'P' },
-			{ typeof(Rigidbody),      'r' },
-			{ typeof(Terrain),        't' },
-			{ typeof(Tree),           'T' },
-		};
-
-		static readonly Dictionary<string, char> tagIcons = new Dictionary<string, char>()
-		{
-			{ "Player", 'q' }
-		};
-
 		const string fontPath = "Assets/Hierarchy Icons/Icons.ttf";
 		static Font font;
 
@@ -60,7 +37,7 @@ namespace HierarchyIcons
 			}
 		}
 
-		static IconInserter ()
+		static IconDisplay ()
 		{
 			font = AssetDatabase.LoadAssetAtPath(fontPath, typeof(Font)) as Font;
 
@@ -92,14 +69,14 @@ namespace HierarchyIcons
 		{
 			var icons = target.GetComponents<Component>()
 				.Select(component => component.GetType())
-				.Where(type => componentIcons.ContainsKey(type))
-				.Select(type => componentIcons[type])
+				.Where(type => IconMapping.componentIcons.ContainsKey(type))
+				.Select(type => IconMapping.componentIcons[type])
 				.Distinct()
 				.ToList();
 
 			// Add icon for tag.
-			if (target.tag != null && tagIcons.ContainsKey(target.tag)) {
-				icons.Add(tagIcons[target.tag]);
+			if (target.tag != null && IconMapping.tagIcons.ContainsKey(target.tag)) {
+				icons.Add(IconMapping.tagIcons[target.tag]);
 			}
 
 			var iconString = string.Join(" ", icons.Select(c => c.ToString()).ToArray());
