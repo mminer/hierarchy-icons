@@ -29,7 +29,6 @@ namespace HierarchyIcons
 			{ typeof(Cloth),          'C' },
 			{ typeof(ConstantForce),  'f' },
 			{ typeof(GUIText),        'g' },
-			{ typeof(GUITexture),     'G' },
 			{ typeof(Light),          'l' },
 			{ typeof(NetworkView),    'n' },
 			{ typeof(ParticleSystem), 'p' },
@@ -41,7 +40,7 @@ namespace HierarchyIcons
 
 		static readonly Dictionary<string, char> tagIcons = new Dictionary<string, char>()
 		{
-			{ "Player", 'p' }
+			{ "Player", 'q' }
 		};
 
 		const string fontPath = "Assets/Hierarchy Icons/Icons.ttf";
