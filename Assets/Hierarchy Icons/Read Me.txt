@@ -1,11 +1,21 @@
 Hierarchy Icons
 ===============
 
+See at a glance what components are attached to game objects in your scene.
+Hierarchy Icons displays icons beside each item in the Hierarchy pane making
+it easy to see, say, where your cameras are, which game objects are lights,
+and which objects have an audio source attached. Think of it as Gizmos for the
+editor.
+
+No setup needs to be done after importing the package. If you wish to turn off
+individual icons, navigate to the Hierarchy Icons pane in Unity's preferences.
+
 
 Version History
 ---------------
 
 1.0 - ???, 2014
+- Initial release.
 
 
 Contact
