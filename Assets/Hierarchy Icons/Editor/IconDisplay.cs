@@ -69,8 +69,8 @@ namespace HierarchyIcons
 		{
 			var icons = target.GetComponents<Component>()
 				.Select(component => component.GetType())
-				.Where(type => IconMapping.componentIcons.ContainsKey(type))
-				.Where(type => Preferences.visible[type.Name])
+				.Where(type => IconMapping.componentIcons.ContainsKey(type) &&
+				               Preferences.visible[type.Name])
 				.Select(type => IconMapping.componentIcons[type])
 				.Distinct()
 				.ToList();
