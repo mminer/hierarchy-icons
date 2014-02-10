@@ -24,7 +24,7 @@ namespace HierarchyIcons
 		static Font font;
 
 		static GUIStyle _labelStyle;
-		public static GUIStyle labelStyle
+		internal static GUIStyle labelStyle
 		{
 			get {
 				if (_labelStyle == null) {
