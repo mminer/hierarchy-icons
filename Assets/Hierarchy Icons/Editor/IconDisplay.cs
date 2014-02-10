@@ -24,7 +24,7 @@ namespace HierarchyIcons
 		static Font font;
 
 		static GUIStyle _labelStyle;
-		static GUIStyle labelStyle
+		public static GUIStyle labelStyle
 		{
 			get {
 				if (_labelStyle == null) {
@@ -70,12 +70,15 @@ namespace HierarchyIcons
 			var icons = target.GetComponents<Component>()
 				.Select(component => component.GetType())
 				.Where(type => IconMapping.componentIcons.ContainsKey(type))
+				.Where(type => Preferences.visible[type.Name])
 				.Select(type => IconMapping.componentIcons[type])
 				.Distinct()
 				.ToList();
 
 			// Add icon for tag.
-			if (target.tag != null && IconMapping.tagIcons.ContainsKey(target.tag)) {
+			if (target.tag != null &&
+					IconMapping.tagIcons.ContainsKey(target.tag) &&
+					Preferences.visible[target.tag]) {
 				icons.Add(IconMapping.tagIcons[target.tag]);
 			}
 
