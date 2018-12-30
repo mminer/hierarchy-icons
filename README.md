@@ -9,8 +9,9 @@ editor.
 
 ## Usage
 
-No setup is necessary after importing the files. To turn off individual icons,
-navigate to the Hierarchy Icons pane in Unity's preferences.
+Add the files to an *Editor* folder (or a subfolder of an *Editor* folder). To
+turn off individual icons, navigate to the Hierarchy Icons pane in Unity's
+preferences.
 
 
 ## Credit
