@@ -14,6 +14,12 @@ turn off individual icons, navigate to the Hierarchy Icons pane in Unity's
 preferences.
 
 
+## Compatibility
+
+Last tested with Unity 2018.3 and probably compatible with most earlier
+versions.
+
+
 ## Credit
 
 The icons used are from the excellent WebHostingHub Glyphs collection

@@ -12,14 +12,28 @@ namespace HierarchyIcons
     [InitializeOnLoad]
     static class IconDisplay
     {
-        const string fontPath = "Assets/Hierarchy Icons/Icons.ttf";
-        static Font font;
+        static Font _font;
+        static Font font
+        {
+            get
+            {
+                if (_font == null)
+                {
+                    // TODO: allow folder to be anywhere
+                    _font = AssetDatabase.LoadAssetAtPath<Font>("Assets/Editor/Hierarchy Icons/Icons.ttf");
+                }
+
+                return _font;
+            }
+        }
 
         static GUIStyle _labelStyle;
         internal static GUIStyle labelStyle
         {
-            get {
-                if (_labelStyle == null) {
+            get
+            {
+                if (_labelStyle == null)
+                {
                     _labelStyle = new GUIStyle(EditorStyles.label);
                     _labelStyle.font = font;
                     _labelStyle.alignment = TextAnchor.MiddleRight;
@@ -31,16 +45,7 @@ namespace HierarchyIcons
 
         static IconDisplay()
         {
-            font = AssetDatabase.LoadAssetAtPath(fontPath, typeof(Font)) as Font;
-
-            if (font == null)
-            {
-                Debug.LogError("[Hierarchy Icons] The font file appears to be missing. Perhaps it was moved?");
-            }
-            else
-            {
-                EditorApplication.hierarchyWindowItemOnGUI += HighlightItems;
-            }
+            EditorApplication.hierarchyWindowItemOnGUI += HighlightItems;
         }
 
         /// <summary>
@@ -51,6 +56,12 @@ namespace HierarchyIcons
         static void HighlightItems(int instanceID, Rect selectionRect)
         {
             var target = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
+
+            if (target == null)
+            {
+                return;
+            }
+
             var iconString = GetIconString(target);
             GUI.Label(selectionRect, iconString, labelStyle);
         }
@@ -74,7 +85,8 @@ namespace HierarchyIcons
                 IconMapping.tagIcons.ContainsKey(target.tag) &&
                 Preferences.visible[target.tag])
             {
-                icons.Add(IconMapping.tagIcons[target.tag]);
+                var icon = IconMapping.tagIcons[target.tag];
+                icons.Add(icon);
             }
 
             return string.Join(" ", icons.Select(c => c.ToString()).ToArray());
