@@ -9,7 +9,7 @@ namespace HierarchyIcons
     /// </summary>
     static class IconMapping
     {
-        internal static readonly Dictionary<Type, char> componentIcons = new Dictionary<Type, char>()
+        public static readonly Dictionary<Type, char> componentIcons = new Dictionary<Type, char>()
         {
             { typeof(Animation),      '>' },
             { typeof(AudioListener),  'A' },
@@ -25,7 +25,7 @@ namespace HierarchyIcons
             { typeof(Tree),           'T' },
         };
 
-        internal static readonly Dictionary<string, char> tagIcons = new Dictionary<string, char>()
+        public static readonly Dictionary<string, char> tagIcons = new Dictionary<string, char>()
         {
             { "Player", 'q' }
         };

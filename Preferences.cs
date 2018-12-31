@@ -10,14 +10,11 @@ namespace HierarchyIcons
     /// </summary>
     static class Preferences
     {
-        internal static Dictionary<string, bool> visible { get; private set; }
+        public static Dictionary<string, bool> visible { get; private set; }
 
         const string prefsPrefix = "hierarchyicons_";
         static Vector2 scrollPosition;
 
-        /// <summary>
-        /// Loads options stored in EditorPrefs.
-        /// </summary>
         static Preferences()
         {
             visible = IconMapping.componentIcons.Keys
@@ -25,12 +22,10 @@ namespace HierarchyIcons
                 .Concat(IconMapping.tagIcons.Keys)
                 .ToDictionary(
                     name => name,
-                    name => EditorPrefs.GetBool(prefsPrefix + name, true));
+                    name => EditorPrefs.GetBool(prefsPrefix + name, true)
+                );
         }
 
-        /// <summary>
-        /// Displays preferences GUI.
-        /// </summary>
         [PreferenceItem("Hierarchy Icons")]
         static void OnGUI()
         {
@@ -57,11 +52,15 @@ namespace HierarchyIcons
 
             if (GUI.changed)
             {
-                // Save preferences.
-                foreach (var kvp in visible)
-                {
-                    EditorPrefs.SetBool(prefsPrefix + kvp.Key, kvp.Value);
-                }
+                SavePreferences();
+            }
+        }
+
+        static void SavePreferences()
+        {
+            foreach (var kvp in visible)
+            {
+                EditorPrefs.SetBool(prefsPrefix + kvp.Key, kvp.Value);
             }
         }
 
@@ -75,8 +74,11 @@ namespace HierarchyIcons
         static bool IconToggle(char icon, string name, bool val)
         {
             GUILayout.BeginHorizontal();
-            GUILayout.Label(icon.ToString(), IconDisplay.labelStyle, GUILayout.ExpandWidth(false));
+
+            var text = icon.ToString();
+            GUILayout.Label(text, IconDisplay.labelStyle, GUILayout.ExpandWidth(false));
             val = EditorGUILayout.Toggle(name, val);
+
             GUILayout.EndHorizontal();
             return val;
         }

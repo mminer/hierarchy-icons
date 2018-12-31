@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -19,8 +20,7 @@ namespace HierarchyIcons
             {
                 if (_font == null)
                 {
-                    // TODO: allow folder to be anywhere
-                    _font = AssetDatabase.LoadAssetAtPath<Font>("Assets/Editor/Hierarchy Icons/Icons.ttf");
+                    _font = LoadFont("HierarchyIcons");
                 }
 
                 return _font;
@@ -28,15 +28,15 @@ namespace HierarchyIcons
         }
 
         static GUIStyle _labelStyle;
-        internal static GUIStyle labelStyle
+        public static GUIStyle labelStyle
         {
             get
             {
                 if (_labelStyle == null)
                 {
                     _labelStyle = new GUIStyle(EditorStyles.label);
-                    _labelStyle.font = font;
                     _labelStyle.alignment = TextAnchor.MiddleRight;
+                    _labelStyle.font = font;
                 }
 
                 return _labelStyle;
@@ -46,24 +46,6 @@ namespace HierarchyIcons
         static IconDisplay()
         {
             EditorApplication.hierarchyWindowItemOnGUI += HighlightItems;
-        }
-
-        /// <summary>
-        /// Displays icons beside each game object in the Hierarchy panel.
-        /// </summary>
-        /// <param name="instanceID">ID of object.</param>
-        /// <param name="selectionRect">Boundaries of object's label.</param>
-        static void HighlightItems(int instanceID, Rect selectionRect)
-        {
-            var target = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
-
-            if (target == null)
-            {
-                return;
-            }
-
-            var iconString = GetIconString(target);
-            GUI.Label(selectionRect, iconString, labelStyle);
         }
 
         /// <summary>
@@ -89,7 +71,34 @@ namespace HierarchyIcons
                 icons.Add(icon);
             }
 
-            return string.Join(" ", icons.Select(c => c.ToString()).ToArray());
+            var iconStrings = icons.Select(icon => icon.ToString()).ToArray();
+            return string.Join(" ", iconStrings);
+        }
+
+        /// <summary>
+        /// Displays icons beside each game object in the Hierarchy panel.
+        /// </summary>
+        static void HighlightItems(int instanceID, Rect selectionRect)
+        {
+            var target = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
+
+            if (target == null)
+            {
+                return;
+            }
+
+            var iconString = GetIconString(target);
+            GUI.Label(selectionRect, iconString, labelStyle);
+        }
+
+        /// <summary>
+        /// Loads a font from the asset database.
+        /// </summary>
+        static Font LoadFont(string name)
+        {
+            var guid = AssetDatabase.FindAssets(name).First();
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            return AssetDatabase.LoadAssetAtPath<Font>(path);
         }
     }
 }
