@@ -6,10 +6,12 @@ make it easy to see where your cameras are, which game objects are lights, and
 which objects have an audio source attached. Think of it as Gizmos for the
 editor.
 
+![Screenshot](http://matthewminer.com/images/hierarchy-icons.png)
+
 
 ## Usage
 
-Add the files to an *Editor* folder (or a subfolder of an *Editor* folder). To
+Add the scripts to an *Editor* folder (or a subfolder of an *Editor* folder). To
 turn off individual icons, navigate to the Hierarchy Icons pane in Unity's
 preferences.
 
