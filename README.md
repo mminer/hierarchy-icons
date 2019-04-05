@@ -22,6 +22,16 @@ Last tested with Unity 2018.3 and probably compatible with most earlier
 versions.
 
 
+## Changelog
+
+1.0.1
+- Fixes error finding the font if any other assets are named "HierarchyIcons"
+  (including the parent folder itself)
+
+1.0.0
+- Initial release
+
+
 ## Credit
 
 The icons used are from the excellent WebHostingHub Glyphs collection
