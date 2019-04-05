@@ -97,7 +97,7 @@ namespace HierarchyIcons
         /// </summary>
         static Font LoadFont(string name)
         {
-            var guid = AssetDatabase.FindAssets(name).First();
+            var guid = AssetDatabase.FindAssets(name + " t:font").First();
             var path = AssetDatabase.GUIDToAssetPath(guid);
             return AssetDatabase.LoadAssetAtPath<Font>(path);
         }
