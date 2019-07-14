@@ -22,6 +22,15 @@ Last tested with Unity 2018.3 and probably compatible with most earlier
 versions.
 
 
+## Adding or Updating Icons
+
+The icons come from an icon font, with each letter mapped to a glyph. [IcoMoon](https://icomoon.io/app) provides an easy way to create one of these. Select icons for each component, click “Generate Font”, assign a character to each glyph, then download the font and replace *HierarchyIcons.ttf*.
+
+The mapping from component type to characters is in *IconMapping.cs*. To add a new entry, add this line to the `componentIcons` dictionary:
+
+    { typeof(MyScript), 'x' },
+
+
 ## Changelog
 
 1.0.1
