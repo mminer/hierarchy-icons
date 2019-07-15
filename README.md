@@ -18,8 +18,7 @@ preferences.
 
 ## Compatibility
 
-Last tested with Unity 2018.3 and probably compatible with most earlier
-versions.
+Requires Unity 2018.3 or later.
 
 
 ## Adding or Updating Icons
@@ -32,6 +31,10 @@ The mapping from component type to characters is in *IconMapping.cs*. To add a n
 
 
 ## Changelog
+
+1.0.2
+- Migrates from `PreferenceItem` to `SettingsProvider` to avoid deprecation
+  warning
 
 1.0.1
 - Fixes error finding the font if any other assets are named "HierarchyIcons"
