@@ -18,7 +18,7 @@ preferences.
 
 ## Compatibility
 
-Requires Unity 2018.3 or later.
+Unity 2018.3 or later.
 
 
 ## Adding or Updating Icons
@@ -30,22 +30,7 @@ The mapping from component type to characters is in *IconMapping.cs*. To add a n
     { typeof(MyScript), 'x' },
 
 
-## Changelog
-
-1.0.2
-- Migrates from `PreferenceItem` to `SettingsProvider` to avoid deprecation
-  warning
-
-1.0.1
-- Fixes error finding the font if any other assets are named "HierarchyIcons"
-  (including the parent folder itself)
-
-1.0.0
-- Initial release
-
-
 ## Credit
 
-The icons used are from the excellent WebHostingHub Glyphs collection
-(http://www.webhostinghub.com/glyphs/). They are licensed under the SIL Open
-Font License.
+The icons are from [WebHostingHub Glyphs](http://www.webhostinghub.com/glyphs/).
+Licensed under the SIL Open Font License.
