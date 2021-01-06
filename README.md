@@ -9,11 +9,18 @@ editor.
 ![Screenshot](http://matthewminer.com/images/hierarchy-icons.png)
 
 
-## Usage
+## Installing
 
-Add the scripts to an *Editor* folder (or a subfolder of an *Editor* folder). To
-turn off individual icons, navigate to the Hierarchy Icons pane in Unity's
-preferences.
+Add the package to your project via
+[UPM](https://docs.unity3d.com/Manual/upm-ui.html) using the Git URL
+https://github.com/mminer/hierarchy-icons.git. You can also clone the repository
+and point UPM to your local copy.
+
+
+## Using
+
+Icons for components should automatically appear in the Hierarchy.  To turn off
+individual icons, navigate to the Hierarchy Icons pane in Unity's preferences.
 
 
 ## Compatibility
