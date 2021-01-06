@@ -1,0 +1,7 @@
+{
+  "description": "Show component icons in the Hierarchy.",
+  "displayName": "Hierarchy Icons",
+  "name": "com.matthewminer.hierarchy-icons",
+  "unity": "2018.3",
+  "version": "1.0.3"
+}
