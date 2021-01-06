@@ -10,16 +10,26 @@ namespace HierarchyIcons
     /// </summary>
     static class Preferences
     {
+        const string prefsPrefix = "hierarchyicons_";
+
         public static Dictionary<string, bool> visible { get; private set; }
 
-        const string prefsPrefix = "hierarchyicons_";
+        static Preferences()
+        {
+            visible = IconMapping.componentIcons.Keys
+                .Select(type => type.Name)
+                .Concat(IconMapping.tagIcons.Keys)
+                .ToDictionary(
+                    name => name,
+                    name => EditorPrefs.GetBool(prefsPrefix + name, true)
+                );
+        }
 
         [SettingsProvider]
         static SettingsProvider CreateSettingsProvider()
         {
             var provider = new SettingsProvider("Project/HierarchyIcons", SettingsScope.User, new[] { "Hierarchy", "Icon" })
             {
-                activateHandler = (searchContext, rootElement) => Load(),
                 guiHandler = searchContext => DisplayGUI(),
                 label = "Hierarchy Icons"
             };
@@ -60,17 +70,6 @@ namespace HierarchyIcons
             val = EditorGUILayout.Toggle(name, val);
             GUILayout.EndHorizontal();
             return val;
-        }
-
-        static void Load()
-        {
-            visible = IconMapping.componentIcons.Keys
-                .Select(type => type.Name)
-                .Concat(IconMapping.tagIcons.Keys)
-                .ToDictionary(
-                    name => name,
-                    name => EditorPrefs.GetBool(prefsPrefix + name, true)
-                );
         }
 
         static void Save()
