@@ -1,4 +1,8 @@
 {
+  "author": {
+    "name": "Matthew Miner",
+    "email": "matthew@matthewminer.com"
+  },
   "description": "Show component icons in the Hierarchy.",
   "displayName": "Hierarchy Icons",
   "name": "com.matthewminer.hierarchy-icons",
