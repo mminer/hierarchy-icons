@@ -11,6 +11,37 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.modules.animation",
+            "expression": "1.0.0",
+            "define": "USE_ANIMATION"
+        },
+        {
+            "name": "com.unity.modules.audio",
+            "expression": "1.0.0",
+            "define": "USE_AUDIO"
+        },
+        {
+            "name": "com.unity.modules.cloth",
+            "expression": "1.0.0",
+            "define": "USE_CLOTH"
+        },
+        {
+            "name": "com.unity.modules.particlesystem",
+            "expression": "1.0.0",
+            "define": "USE_PARTICLES"
+        },
+        {
+            "name": "com.unity.modules.physics",
+            "expression": "1.0.0",
+            "define": "USE_PHYSICS"
+        },
+        {
+            "name": "com.unity.modules.terrain",
+            "expression": "1.0.0",
+            "define": "USE_TERRAIN"
+        }
+    ],
     "noEngineReferences": false
 }
