@@ -12,14 +12,35 @@ editor.
 ## Installing
 
 Add the package to your project via
-[UPM](https://docs.unity3d.com/Manual/upm-ui.html) using the Git URL
-https://github.com/mminer/hierarchy-icons.git. You can also clone the repository
-and point UPM to your local copy.
+[UPM](https://docs.unity3d.com/Manual/upm-ui.html) using the Git URL:
+
+```
+https://github.com/mminer/hierarchy-icons.git
+```
+
+1. Open the Package Manager window in Unity (*Window > Package Manager*)
+2. Click the "+" button in the top-left corner
+3. Select "Install package from git URL..."
+4. Enter the above Git URL
+5. Click "Install"
+
+Alternatively, add the following line to your `Packages/manifest.json` file:
+
+```json
+{
+  "dependencies": {
+    "com.matthewminer.hierarchy-icons": "https://github.com/mminer/hierarchy-icons.git",
+    ...
+  }
+}
+```
+
+You can also clone the repository and point UPM to your local copy.
 
 
 ## Using
 
-Icons for components should automatically appear in the Hierarchy.  To turn off
+Icons for components should automatically appear in the Hierarchy. To turn off
 individual icons, navigate to the Hierarchy Icons pane in Unity's preferences.
 
 
@@ -30,9 +51,13 @@ Unity 2018.3 or later.
 
 ## Adding or Updating Icons
 
-The icons come from an icon font, with each letter mapped to a glyph. [IcoMoon](https://icomoon.io/app) provides an easy way to create one of these. Select icons for each component, click “Generate Font”, assign a character to each glyph, then download the font and replace *HierarchyIcons.ttf*.
+The icons come from an icon font, with each letter mapped to a glyph.
+[IcoMoon](https://icomoon.io/app) provides an easy way to create one of these.
+Select icons for each component, click “Generate Font”, assign a character to
+each glyph, then download the font and replace *HierarchyIcons.ttf*.
 
-The mapping from component type to characters is in *IconMapping.cs*. To add a new entry, add this line to the `componentIcons` dictionary:
+The mapping from component type to characters is in *IconMapping.cs*. To add a
+new entry, add this line to the `componentIcons` dictionary:
 
     { typeof(MyScript), 'x' },
 
