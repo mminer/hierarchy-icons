@@ -6,7 +6,7 @@ make it easy to see where your cameras are, which game objects are lights, and
 which objects have an audio source attached. Think of it as Gizmos for the
 editor.
 
-![Screenshot](http://matthewminer.com/images/hierarchy-icons.png)
+![Screenshot](.screenshot.png)
 
 
 ## Installing
