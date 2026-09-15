@@ -1,5 +1,10 @@
 # Hierarchy Icons
 
+> [!WARNING]
+> This package is obsolete with Unity 6.6's introduction of
+> [component icons](https://docs.unity3d.com/6000.6/Documentation/Manual/hierarchy-reference.html#icons-in-the-hierarchy-window)
+> in the hierarchy window.
+
 See at a glance what components are attached to game objects in your scene with
 this editor extension for Unity. Icons beside each item in the Hierarchy pane
 make it easy to see where your cameras are, which game objects are lights, and
